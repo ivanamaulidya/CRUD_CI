@@ -11,6 +11,10 @@ class Customer_model extends CI_Model
     public function rules()
     {
         return [
+            ['field' => 'customer_id',
+            'label' => 'Customer Id',
+            'rules' => 'numeric'],
+
             ['field' => 'name',
             'label' => 'Name',
             'rules' => 'required'],
@@ -35,6 +39,7 @@ class Customer_model extends CI_Model
     {
         $post = $this->input->post();
         $this->customer_id = uniqid();
+        $this->customer_id = $post["customer_id"];
         $this->name = $post["name"];
         $this->address = $post["address"];
         $this->db->insert($this->_table, $this);
@@ -43,7 +48,7 @@ class Customer_model extends CI_Model
     public function update()
     {
         $post = $this->input->post();
-        $this->customer_id = $post["id"];
+        $this->customer_id = $post["customer_id"];
         $this->name = $post["name"];
         $this->address = $post["address"];
         $this->db->update($this->_table, $this, array('customer_id' => $post['id']));

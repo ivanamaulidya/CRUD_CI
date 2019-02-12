@@ -39,6 +39,15 @@
 							<input type="hidden" name="id" value="<?php echo $customer->customer_id?>" />
 
 							<div class="form-group">
+								<label for="name">Customer Id*</label>
+								<input class="form-control <?php echo form_error('customer_id') ? 'is-invalid':'' ?>"
+								 type="text" name="customer_id" placeholder="Customer Id" value="<?php echo $customer->customer_id ?>" />
+								<div class="invalid-feedback">
+									<?php echo form_error('customer_id') ?>
+								</div>
+							</div>
+
+							<div class="form-group">
 								<label for="name">Name*</label>
 								<input class="form-control <?php echo form_error('name') ? 'is-invalid':'' ?>"
 								 type="text" name="name" placeholder="Customer name" value="<?php echo $customer->name ?>" />

@@ -24,38 +24,44 @@
 				</div>
 				<?php endif; ?>
 
+				<!-- Card  -->
 				<div class="card mb-3">
 					<div class="card-header">
-						<a href="<?php echo site_url('admin/customers/') ?>"><i class="fas fa-arrow-left"></i> Back</a>
+
+						<a href="<?php echo site_url('admin/suppliers/') ?>"><i class="fas fa-arrow-left"></i>
+							Back</a>
 					</div>
 					<div class="card-body">
 
-						<form action="<?php base_url('admin/customer/add') ?>" method="post" enctype="multipart/form-data" >
-							<div class="form-group">
-								<label for="name">Customer Id*</label>
-								<input class="form-control <?php echo form_error('customer_id') ? 'is-invalid':'' ?>"
-								 type="text" name="customer_id" placeholder="Customer id" />
-								<div class="invalid-feedback">
-									<?php echo form_error('customer_id') ?>
-								</div>
-							</div>
+						<form action="<?php base_url(" admin/supplier/edit") ?>" method="post"
+							enctype="multipart/form-data" >
 
-						<form action="<?php base_url('admin/customer/add') ?>" method="post" enctype="multipart/form-data" >
-							<div class="form-group">
-								<label for="name">Name*</label>
-								<input class="form-control <?php echo form_error('name') ? 'is-invalid':'' ?>"
-								 type="text" name="name" placeholder="Customer name" />
+							<input type="hidden" name="id" value="<?php echo $supplier->supplier_id?>" />
+
+                            <div class="form-group">
+								<label for="id">Supplier Id*</label>
+								<input class="form-control <?php echo form_error('supplier_id') ? 'is-invalid':'' ?>"
+								 type="text" name="supplier_id" placeholder="Supplier Id" value="<?php echo $supplier->supplier_id ?>" />
 								<div class="invalid-feedback">
-									<?php echo form_error('name') ?>
+									<?php echo form_error('supplier_id') ?>
 								</div>
 							</div>
 
 							<div class="form-group">
-								<label for="price">Address*</label>
+								<label for="supplier_name">Name*</label>
+								<input class="form-control <?php echo form_error('supplier_name') ? 'is-invalid':'' ?>"
+								 type="text" name="supplier_name" placeholder="Supplier name" value="<?php echo $supplier->supplier_name ?>" />
+								<div class="invalid-feedback">
+									<?php echo form_error('supplier_name') ?>
+								</div>
+							</div>
+
+							<div class="form-group">
+								<label for="supplier_address">Address*</label>
 								<input class="form-control <?php echo form_error('address') ? 'is-invalid':'' ?>"
-								 type="text" name="address" min="0" placeholder="Customer address" />
+								 type="text" name="supplier_address" min="0" placeholder="Supplier address" value="<?php echo $supplier->supplier_address ?>" />
 								<div class="invalid-feedback">
-									<?php echo form_error('address') ?>
+									<?php echo form_error('supplier_address') ?>
 								</div>
 							</div>
 
@@ -80,7 +86,6 @@
 
 		</div>
 		<!-- /#wrapper -->
-
 
 		<?php $this->load->view("admin/_partials/scrolltop.php") ?>
 
